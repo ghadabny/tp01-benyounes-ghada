@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de compte client</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Formulaire de Compte Client</h1>
+    <form action="traitement.php" method="post">
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" id="adresse" name="adresse">
+        </div>
+        <div class="form-group">
+            <label for="code_postal">Code Postal :</label>
+            <input type="text" id="code_postal" name="code_postal">
+        </div>
+        <div class="form-group">
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville">
+        </div>
+        <div class="form-group">
+            <label for="tel">Téléphone :</label>
+            <input type="tel" id="tel" name="tel">
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label>Civilité :</label>
+            <input type="radio" id="monsieur" name="civilite" value="Monsieur">
+            <label for="monsieur">Monsieur</label>
+            <input type="radio" id="madame" name="civilite" value="Madame">
+            <label for="madame">Madame</label>
+        </div>
+        <div class="form-group">
+            <label for="login">Login :</label>
+            <input type="text" id="login" name="login" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Confirmer le mot de passe :</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+
+        <button type="submit">Soumettre</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+          $("form").submit(function(event) {
+            var password = $("#password").val();
+            var confirmPassword = $("#confirm-password").val();
+        
+            if (password !== confirmPassword) {
+              alert("Les mots de passe ne correspondent pas. Veuillez corriger.");
+              event.preventDefault();
+            }
+          });
+        });
+    </script>
+</body>
+</html>
